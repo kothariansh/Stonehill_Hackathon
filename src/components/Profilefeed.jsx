@@ -1,31 +1,25 @@
-import React from "react";
+import React, {useEffect, useState } from "react";
 import '../Profile.css'
+import { db } from "../firebase-config";
+import {collection, onSnapshot } from 'firebase/firestore'
 
 const ProfileFeed = () => {
+	const [students, setStudents] = useState([]);
+	console.log(setStudents);
+	useEffect(() => {
+		onSnapshot(collection(db, 'users'),(snapshot) =>
+			setStudents(snapshot.docs.map(doc => doc.data())))
+	}, [])
 	return (
 		<div id="parent-div">
-			<a href="/name/x">
-			<div className="child-div">
-					<h1 class="profile-username">Indiance</h1>
-					<h3 class="profile-university">Stanford</h3>
-					<p class="profile-degree">Computer Engineering</p>
-			</div>
-			</a>
-			<a href="/name/x">
-			<div className="child-div">
-					<h1 class="profile-username">Realtime</h1>
-					<h3 class="profile-university">UCB</h3>
-					<p class="profile-degree">Data Science</p>
-			</div>
-			</a>
-			<a href="/name/x">
-			<div class="child-div">
-					<h1 class="profile-username">AR</h1>
-					<h3 class="profile-university">Harvard</h3>
-					<p class="profile-degree">Computer Science</p>
-			</div>
-			</a>
+			{students.map((student) => (
+				<div className="child-div">
+					<h1 className="profile-username">{student.username}</h1>
+					<h3 className="profile-university">{student.university}</h3>
+					<h5 className="profile-degree">{student.degree}</h5>
+				</div>
+			))}
 		</div>
-		)
+	)
 }
 export default ProfileFeed;
