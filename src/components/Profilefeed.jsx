@@ -1,30 +1,31 @@
 import React from "react";
+import '../Profile.css'
 
 const ProfileFeed = () => {
 	return (
-		<React.Fragment>
-			<div class="noteCard my-2 mx-2 card">
-				<div class="card-body">
-					<h5 class="card-title">Indiance</h5>
-					<p class="card-text">Computer Engineering</p>
-					<button onclick="deleteNote(this.id)" class="btn btn-primary">Create DM</button>
-				</div>
+		<div id="parent-div">
+			<a href="/name/x">
+			<div className="child-div">
+					<h1 class="profile-username">Indiance</h1>
+					<h3 class="profile-university">Stanford</h3>
+					<p class="profile-degree">Computer Engineering</p>
 			</div>
-			<div class="noteCard my-2 mx-2 card">
-				<div class="card-body">
-					<h5 class="card-title">Realtime</h5>
-					<p class="card-text">Data Science</p>
-					<button onclick="deleteNote(this.id)" class="btn btn-primary">Create DM</button>
-				</div>
+			</a>
+			<a href="/name/x">
+			<div className="child-div">
+					<h1 class="profile-username">Realtime</h1>
+					<h3 class="profile-university">UCB</h3>
+					<p class="profile-degree">Data Science</p>
 			</div>
-			<div class="noteCard my-2 mx-2 card">
-				<div class="card-body">
-					<h5 class="card-title">AR</h5>
-					<p class="card-text">Computer Science</p>
-					<button onclick="deleteNote(this.id)" class="btn btn-primary">Create DM</button>
-				</div>
+			</a>
+			<a href="/name/x">
+			<div class="child-div">
+					<h1 class="profile-username">AR</h1>
+					<h3 class="profile-university">Harvard</h3>
+					<p class="profile-degree">Computer Science</p>
 			</div>
-		</React.Fragment>
+			</a>
+		</div>
 		)
 }
 export default ProfileFeed;
