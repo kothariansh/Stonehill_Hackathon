@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth'
 import {getFirestore} from 'firebase/firestore'
 const firebaseConfig = {
-	apiKey: "AIzaSyCqlQnWI4qobT7FyX1xitR-msHKtZYVnys",
-	authDomain: "stonehill-hackathon-c957d.firebaseapp.com",
-	projectId: "stonehill-hackathon-c957d",
-	storageBucket: "stonehill-hackathon-c957d.appspot.com",
-	messagingSenderId: "52868776028",
-	appId: "1:52868776028:web:84912b4054f271b97fe699",
-	measurementId: "G-1QQTN538CJ"
+	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+	authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+	projectId: process.env.REACT_APP_FIREBASE_ID,
+	storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+	messagingSenderId: process.env.REACT_APP_MESSANGER_ID,
+	appId: process.env.REACT_APP_FIREBASE_APP_ID,
+	measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
   };
   const app = initializeApp(firebaseConfig);
 
