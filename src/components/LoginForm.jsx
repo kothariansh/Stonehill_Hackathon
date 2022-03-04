@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const projectID = '20fcfd94-a1ba-40ea-b429-3b7b6f7444e6';
+const projectID = process.env.REACT_APP_ENGINE_KEY;
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [university, setUniversity] = useState('');
+  const [degree, setDegree] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
@@ -31,8 +34,11 @@ const LoginForm = () => {
       <div className="form">
         <h1 className="title">Chat Application</h1>
         <form onSubmit={handleSubmit}>
+		  <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="input" placeholder='Email' required />
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className="input" placeholder="Username" required />
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="input" placeholder="Password" required />
+		  <input type="text" value={university} onChange={(e) => setUniversity(e.target.value)} className="input" placeholder='University' required />
+		  <input type="text" value={degree} onChange={(e) => setDegree(e.target.value)} className="input" placeholder='Degree' required />
           <div align="center">
             <button type="submit" className="button">
               <span>Start chatting</span>
