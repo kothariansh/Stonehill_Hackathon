@@ -1,17 +1,17 @@
-import { ChatEngine } from 'react-chat-engine';
+import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom';
 import './App.css';
-import ChatFeed from './components/ChatFeed';
+import Chats from './components/Chats';
 import LoginForm from './components/LoginForm';
+import ProfileFeed from './components/Profilefeed';
 const App = () => {
 	if (!localStorage.getItem('username')) return <LoginForm />;
 	return (
-		<ChatEngine
-			height="100vh"
-			projectID={process.env.REACT_APP_ENGINE_KEY}
-			userName="Indiance"
-			userSecret="123123"
-			renderChatFeed={(chatAppPrompts) => <ChatFeed {... chatAppPrompts}/>}
-		/>
+		<Router>
+			<Routes>
+				<Route path="/" element={<ProfileFeed />} />
+				<Route path="/chats" element={<Chats />} />
+			</Routes>
+		</Router>
 	);
 }
 
