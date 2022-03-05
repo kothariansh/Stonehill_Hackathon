@@ -1,0 +1,16 @@
+#parent-div {
+	display: flex;
+	flex-wrap: wrap;
+	/* for horizontal aligning of child divs */
+	justify-content: center;
+  }
+  
+.child-div {
+	margin: 50%;
+	border: 5px solid black;
+	padding: 50px;
+	margin: 20px;
+}
+.child-div:hover {
+	background-color: lightblue;
+}
